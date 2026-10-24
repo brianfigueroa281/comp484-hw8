@@ -1,0 +1,257 @@
+/* Color Palette
+# 0A0A0A - black knit (main background)
+# 141414 - charcoal (education section)
+# EDEDED - thread white (headings, links)
+# 9A9A9A - soft grey (secondary text)
+*/
+
+/* Global styles
+------------------------------------*/
+
+/* HW7 5a: box model fix, at the very top so it applies to every element */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* HW8 1b: smooth scroll when a nav link is clicked */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding-top: 64px;                      /* HW8 1c: room so the fixed nav doesn't cover the header */                              /* HW7 3d: removes the white border around the page */
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #C8C8C8;
+    background-color: #0A0A0A;
+}
+
+h1, h2, h3 {
+    font-family: 'Exo 2', Arial, sans-serif;
+    font-weight: 300;
+    color: #EDEDED;
+}
+
+h1 {
+    font-size: 2.6em;
+    letter-spacing: 0.2em;
+}
+
+h2 {
+    font-size: 1.6em;
+    margin-top: 0;                          /* HW7 3c: removes margin from the top of h2 */
+}
+
+a {
+    color: #EDEDED;
+}
+
+/* HW7 1b, 2d, 3a, 4f: reusable content wrapper */
+.content-wrap {
+    max-width: 950px;                       /* 2d: max-width instead of width so it can shrink */
+    margin: 0 auto;
+    padding: 50px;
+    overflow: hidden;                       /* 4f: contains the floated columns */
+}
+
+/* HW7 6d: narrow column */
+.column-narrow {
+    width: 30%;
+    float: left;
+    padding-right: 3%;
+    min-height: 175px;
+}
+
+/* HW7 6e: wide column */
+.column-wide {
+    width: 70%;
+    float: left;
+    min-height: 225px;
+}
+
+
+/* Navigation (HW8 1)
+------------------------------------*/
+
+/* HW8 1c: fixed so the menu stays at the top while scrolling */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    z-index: 100;                           /* keeps the nav above the page content */
+    background-color: rgba(10, 10, 10, 0.97);
+    border-bottom: 1px solid #2A2A2A;
+}
+
+.nav-wrap {
+    max-width: 950px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-family: 'Exo 2', Arial, sans-serif;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+}
+
+/* HW8 1a: plain links side by side, no list needed */
+.nav-links a {
+    display: inline-block;
+    padding: 8px 12px;
+    font-size: 0.85em;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #9A9A9A;
+}
+
+.nav-links a:hover {
+    color: #EDEDED;
+}
+
+/* HW8 1d: resume download button */
+.nav-links .nav-resume {
+    margin-left: 8px;
+    border: 1px solid #EDEDED;
+    border-radius: 3px;
+    color: #EDEDED;
+}
+
+.nav-links .nav-resume:hover {
+    background-color: #EDEDED;
+    color: #0A0A0A;
+}
+
+/* HW8 1b: stop the fixed nav from covering section headings */
+header, section, footer {
+    scroll-margin-top: 64px;
+}
+
+
+/* Header & Footer
+------------------------------------*/
+header {
+    background-color: #0A0A0A;
+    border-bottom: 1px solid #2A2A2A;
+}
+
+/* HW7 4d: pull the name and tagline together */
+header h1,
+header h2 {
+    margin: 0;
+}
+
+header h2 {
+    font-size: 1.1em;
+    letter-spacing: 0.4em;
+    color: #9A9A9A;
+    margin-bottom: 20px;
+}
+
+/* HW7 4b, 4c, 6f: profile image */
+.profile-img {
+    /* width: 300px;        4b - replaced by .column-narrow (6f)
+       float: left;         4e - replaced by .column-narrow (6f)
+       margin-right: 30px;  4g - replaced by padding-right in .column-narrow (6f) */
+    border-radius: 50%;
+}
+
+/* HW7 3e: center the footer text */
+footer {
+    text-align: center;
+    background-color: #0A0A0A;
+    border-top: 1px solid #2A2A2A;
+}
+
+/* HW7 3g: space out only the links inside .contact-info */
+.contact-info a {
+    padding: 10px;
+    display: inline-block;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+}
+
+/* HW8 2a: spacing between the icon and the link text */
+.contact-info a i {
+    margin-right: 6px;
+}
+
+.contact-info a:hover {
+    color: #9A9A9A;
+}
+
+.copyright {
+    font-size: 0.8em;
+    color: #5A5A5A;
+}
+
+
+/* Work Experience
+------------------------------------*/
+.work-section {
+    background-color: #0A0A0A;
+}
+
+.job {
+    overflow: hidden;                       /* keeps each job's floats together */
+    border-bottom: 1px solid #1E1E1E;
+    padding-top: 25px;
+}
+
+.job h3 {
+    margin: 0 0 5px;
+}
+
+.job .column-narrow p {
+    margin: 2px 0;
+}
+
+.dates {
+    font-size: 0.85em;
+    color: #7A7A7A;
+}
+
+.column-wide p:first-child {
+    margin-top: 0;
+}
+
+
+/* Education
+------------------------------------*/
+/* HW8 3a: background image with an RGBA gradient on top.
+   The alpha channel (last value) lets the image show through. */
+.education-section {
+    background-color: #141414;              /* fallback if the image doesn't load */
+    background-image:
+        linear-gradient(to right, rgba(10, 10, 10, 0.95), rgba(10, 10, 10, 0.3)),
+        url("../images/education-bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.education-section h3 {
+    margin-bottom: 5px;
+}
+
+
+/* Small screens (HW8 nav)
+------------------------------------*/
+@media (max-width: 700px) {
+    .main-nav { height: auto; }
+    .nav-wrap { flex-direction: column; padding: 8px 16px; }
+    .nav-links a { padding: 6px 8px; font-size: 0.75em; }
+    body { padding-top: 115px; }
+    header, section, footer { scroll-margin-top: 115px; }
+}
